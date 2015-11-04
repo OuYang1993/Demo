@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by oylz on 2015/6/19.
  * 基类
- * 测试
  */
 public class BaseActivity extends AppCompatActivity {
 

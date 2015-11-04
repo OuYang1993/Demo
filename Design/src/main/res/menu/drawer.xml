@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/drawer_name"
+          android:title="姓名"/>
+    <item android:id="@+id/drawer_email"
+          android:title="邮箱"/>
+    <item android:id="@+id/drawer_address"
+          android:title="地址"/>
+    <item android:id="@+id/drawer_phone"
+          android:title="电话"/>
+</menu>

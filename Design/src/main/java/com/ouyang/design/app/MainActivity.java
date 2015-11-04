@@ -37,7 +37,6 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
-    //    private RecyclerView rv_list;
     private Toolbar toolbar;
     private ActionBar actionBar;
     private DrawerLayout drawer;

@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ouyang.design.app.MainActivity;
 import com.ouyang.design.app.R;
 import com.ouyang.design.app.adapter.RecyclerAdapter;
+import com.ouyang.design.app.listener.HidingScrollListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,7 @@ public class FragmentOne extends Fragment {
     private View view;
     private RecyclerView rv_list;
     private Context context;
+    private final String TAG = FragmentOne.class.getSimpleName();
 
     public FragmentOne() {
         // Required empty public constructor
@@ -49,6 +53,7 @@ public class FragmentOne extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setAdapter();
+        setListener();
     }
 
     private void setAdapter() {
@@ -65,6 +70,22 @@ public class FragmentOne extends Fragment {
         }
         RecyclerAdapter adapter = new RecyclerAdapter(context, list);
         rv_list.setAdapter(adapter);
+    }
+
+    private void setListener() {
+        rv_list.addOnScrollListener(new HidingScrollListener() {
+            @Override
+            public void onHide() {
+                Log.e(TAG, "onHide...");
+                ((MainActivity) context).hideViews();
+            }
+
+            @Override
+            public void onShow() {
+                Log.e(TAG, "onShow`````...");
+                ((MainActivity) context).showViews();
+            }
+        });
     }
 
     @Override

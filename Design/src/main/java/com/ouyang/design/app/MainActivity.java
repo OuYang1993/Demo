@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.FrameLayout;
 
 import com.ouyang.design.app.adapter.FragmentAdapter;
 import com.ouyang.design.app.adapter.RecyclerAdapter;
@@ -38,47 +42,51 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
     private Toolbar toolbar;
-    private ActionBar actionBar;
     private DrawerLayout drawer;
     private TabLayout tableLayout;
     private ViewPager vp_main;
+    private final String TAG = MainActivity.class.getSimpleName();
+    private FloatingActionButton fab_action;
+    private CollapsingToolbarLayout ctl_toolbar;
     private AppBarLayout app_bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //4.4以上开启沉浸模式
-            Window window = getWindow();
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//不隐藏状态栏
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            window.setStatusBarColor(getResources().getColor(R.color.transparent));
-
-        }
         setContentView(R.layout.activity_main);
-        initView();
         setupActionBar();
+        initView();
         setAdapter();
         setListener();
     }
 
     @Override
     public void initView() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer);
         tableLayout = (TabLayout) findViewById(R.id.tab);
         vp_main = (ViewPager) findViewById(R.id.vp_main);
-        app_bar = (AppBarLayout) findViewById(R.id.app_bar);
-        CollapsingToolbarLayout.LayoutParams params = (CollapsingToolbarLayout.LayoutParams) toolbar.getLayoutParams();
-        params.topMargin = getStatusBarHeight();
-        toolbar.setLayoutParams(params);
+        fab_action = (FloatingActionButton) findViewById(R.id.fab_action);
+
+        ctl_toolbar = (CollapsingToolbarLayout) findViewById(R.id.ctl_toolbar);
+        app_bar = (AppBarLayout) findViewById(R.id.appbar);
+
+
     }
 
     private void setupActionBar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (Build.VERSION.SDK_INT == 21) {
+            int result = 0;
+            int resourceId = getResources().getIdentifier(
+                    "status_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                result = getResources().getDimensionPixelSize(resourceId) * 2;
+            }
+            CollapsingToolbarLayout.LayoutParams params = (CollapsingToolbarLayout.LayoutParams) toolbar.getLayoutParams();
+            params.topMargin -= result;
+            toolbar.setLayoutParams(params);
+        }
         setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
-
     }
 
 
@@ -129,34 +137,8 @@ public class MainActivity extends BaseActivity {
         drawer.setDrawerListener(drawerListener);
 
 
-        app_bar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int offset) {
-                Log.e("design", "offset: " + offset + "\ttotalScrollRange: " + appBarLayout.getTotalScrollRange());
-                if (appBarLayout.getTotalScrollRange() - Math.abs(offset) <= getStatusBarHeight()) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        Window window = getWindow();
-                        window.setStatusBarColor(getResources().getColor(R.color.material_deep_teal_500));
-
-                    }
-                } else {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        Window window = getWindow();
-                        window.setStatusBarColor(getResources().getColor(R.color.transparent));
-                    }
-                }
-            }
-        });
     }
 
-    public int getStatusBarHeight() {
-        int result = 0;
-        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result = getResources().getDimensionPixelSize(resourceId);
-        }
-        return result;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -180,4 +162,15 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void hideViews() {
+        Log.e(TAG, "hideViews....");
+        toolbar.animate().translationY(-toolbar.getHeight()).setInterpolator(new AccelerateInterpolator(2)).start();
+        fab_action.animate().translationY(fab_action.getHeight() + 100).setInterpolator(new AccelerateInterpolator(2)).start();
+    }
+
+    public void showViews() {
+        Log.e(TAG, "showViews....");
+        toolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+        fab_action.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+    }
 }

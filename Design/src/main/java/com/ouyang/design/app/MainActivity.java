@@ -71,6 +71,7 @@ public class MainActivity extends BaseActivity {
         app_bar = (AppBarLayout) findViewById(R.id.appbar);
 
 
+
     }
 
     private void setupActionBar() {

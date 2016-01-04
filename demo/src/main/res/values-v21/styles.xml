@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="BaseTheme.Yellow" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/material_yellow_500</item>
+        <item name="android:colorPrimary">@color/material_yellow_500</item>
+        <item name="android:colorPrimaryDark">@color/material_yellow_500</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <!--<item name="android:windowActionBarOverlay">true</item>-->
+        <item name="android:statusBarColor">@color/material_deep_teal_500</item>
+        <item name="android:colorPrimary">@color/material_deep_teal_500</item>
+        <item name="android:colorPrimaryDark">@color/material_deep_teal_500</item>
+    </style>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorPrimary">@color/material_deep_teal_500</item>
+        <item name="android:colorPrimaryDark">@color/material_deep_teal_500</item>
+
+        <!--<item name="android:windowActionBarOverlay">true</item>-->
+    </style>
+    <style name="AppTheme.Drawer" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <!--<item name="android:statusBarColor">@color/transparent</item>-->
+        <!--<item name="android:windowActionBarOverlay">true</item>-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorPrimary">@color/material_deep_teal_500</item>
+        <item name="android:colorPrimaryDark">@color/material_deep_teal_500</item>
+    </style>
+    <style name="ActionBarWidget" parent="Theme.AppCompat.Light.DarkActionBar"/>
+
+
+</resources>

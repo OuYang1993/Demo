@@ -2,9 +2,19 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <import
+            alias="StringUtil"
+            type="com.ouyang.databinding.util.StringUtil" />
+
+        <import type="android.text.TextUtils" />
+
+
         <variable
             name="user"
             type="com.ouyang.databinding.entity.SyncUser" />
+
 
         <variable
             name="obUser"
@@ -21,8 +31,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
             android:orientation="vertical"
+            android:padding="16dp"
             tools:ignore="RtlHardcoded">
 
             <LinearLayout
@@ -68,7 +78,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:hint="age"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxLength="3" />
 
                 </LinearLayout>
 
@@ -139,7 +150,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="@{user.name}" />
+                        android:text="@{user.isNameAvailable ? user.name: user.errorName}" />
 
                 </LinearLayout>
 
@@ -157,7 +168,28 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="@{String.valueOf(user.age)}" />
+                        android:text="@{String.valueOf(user.age)}"
+                        android:visibility="@{user.age &lt;=0 ? View.GONE:View.VISIBLE}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:visibility="@{user.age &gt;=18 ? View.VISIBLE :View.GONE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="是否成年" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="已成年"
+                        android:textColor="@color/material_red_500" />
 
                 </LinearLayout>
 
@@ -182,7 +214,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:visibility="@{TextUtils.isEmpty(user.address) ? View.GONE : View.VISIBLE}">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -243,7 +276,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:hint="age"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:maxLength="3" />
 
                 </LinearLayout>
 
@@ -308,51 +342,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="对象名字" />
+                        android:text="对象信息" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="@{obUser.name}" />
+                        android:lineSpacingExtra="4dp"
+                        android:text="@{@string/nameAgeSexFormat(StringUtil.formatNullString(obUser.name),StringUtil.formatZeroString(obUser.age),StringUtil.formatNullString(obUser.sex))}" />
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="对象年龄" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:text="@{String.valueOf(obUser.age)}" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="对象性别" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:text="@{obUser.sex}" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -368,7 +368,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:text="@{obUser.address}" />
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@{obUser.address}"
+
+                        />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

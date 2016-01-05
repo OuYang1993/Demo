@@ -1,1 +1,7 @@
-/build
+# Gradle
+local.properties
+build
+
+# Android Studio
+.idea
+*.iml

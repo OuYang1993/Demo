@@ -1,7 +1,8 @@
 package com.ouyang.databinding.util;
 
 import android.widget.Toast;
-import com.ouyang.demo.app.base.BaseApp;
+
+import com.ouyang.databinding.BaseApp;
 
 
 public final class ToastUtil {

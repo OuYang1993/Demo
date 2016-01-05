@@ -3,4 +3,8 @@
     <color name="colorPrimary">#ff009688</color>
     <color name="colorPrimaryDark">#ff009688</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="material_yellow_500">#ffeb3b</color>
+    <color name="material_teal_500">#ff009688</color>
+    <color name="material_grey_300">#ffe0e0e0</color>
+    <color name="material_red_500">#fff44336</color>
 </resources>

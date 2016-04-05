@@ -1,5 +1,6 @@
 package com.ouyang.transition;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,8 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.ouyang.transition.activity.ActivityTransition;
+import com.ouyang.transition.activity.ApiDemos;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button btn_transition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        initView();
+        setListener();
+    }
+
+    private void initView() {
+        btn_transition = (Button) findViewById(R.id.btn_transition);
+    }
+
+    private void setListener() {
+        btn_transition.setOnClickListener(this);
     }
 
     @Override
@@ -48,5 +66,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_transition:
+                Intent intent = new Intent(MainActivity.this, ApiDemos.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

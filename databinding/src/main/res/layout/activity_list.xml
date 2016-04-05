@@ -1,17 +1,28 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.ouyang.databinding.activity.ListActivity">
+<layout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/srf_refresh"
+    <data></data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:context="com.ouyang.databinding.activity.ListActivity">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_list"
+        <EditText
+            android:id="@+id/et_list_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </android.support.v4.widget.SwipeRefreshLayout>
-</RelativeLayout>
+            android:layout_height="wrap_content" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srf_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_list_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+</layout>

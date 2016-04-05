@@ -14,6 +14,7 @@ public class BaseApp extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+//        Thread.setDefaultUncaughtExceptionHandler(new CrashHandler(this));
     }
 
     public static synchronized BaseApp getInstance() {

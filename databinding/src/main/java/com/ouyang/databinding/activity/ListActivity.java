@@ -1,5 +1,6 @@
 package com.ouyang.databinding.activity;
 
+import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -13,11 +14,14 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.ouyang.databinding.R;
 import com.ouyang.databinding.adapter.UserAdapter;
+import com.ouyang.databinding.databinding.ActivityListBinding;
 import com.ouyang.databinding.entity.User;
 
 import java.util.ArrayList;
@@ -31,11 +35,12 @@ public class ListActivity extends AppCompatActivity {
     private UserAdapter adapter;
     private MyHandler handler = new MyHandler();
     private LinearLayoutManager manager;
+    private ActivityListBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_list);
         setupActionBar();
         initView();
         setListener();
@@ -56,6 +61,25 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void setListener() {
+        binding.etListContent.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (list != null && list.size() > 0) {
+                    list.get(0).setName(binding.etListContent.getText().toString());
+                }
+            }
+        });
+
         srf_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

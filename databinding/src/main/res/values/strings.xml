@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">DataBinding</string>
     <string name="nameAgeSexFormat">姓名:%1$s \n年龄:%2$s \n性别:%3$s</string>
+    <string name="help">帮助</string>
+    <string name="string_help_text">帮助说明</string>
+    <string name="quit">退出</string>
+    <string name="settings">设置</string>
 </resources>

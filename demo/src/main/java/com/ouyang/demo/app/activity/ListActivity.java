@@ -1,9 +1,7 @@
-package com.ouyang.demo.app;
+package com.ouyang.demo.app.activity;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,12 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.adapter.ListAdapter;
-import com.ouyang.demo.app.utils.ToastUtil;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ListActivity extends AppCompatActivity {

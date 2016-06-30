@@ -1,4 +1,4 @@
- package com.ouyang.demo.app;
+ package com.ouyang.demo.app.activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+
+import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.adapter.MyPagerAdapter;
 import com.ouyang.demo.app.fragment.FragmentOne;
 import com.ouyang.demo.app.fragment.FragmentThree;

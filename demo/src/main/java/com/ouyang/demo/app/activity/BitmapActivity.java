@@ -1,4 +1,4 @@
-package com.ouyang.demo.app;
+package com.ouyang.demo.app.activity;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.adapter.RecyclerAdapter;
 import com.ouyang.demo.app.adapter.RecyclerAdapter1;
 

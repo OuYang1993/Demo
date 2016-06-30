@@ -1,4 +1,4 @@
-package com.ouyang.demo.app;
+package com.ouyang.demo.app.activity;
 
 import android.content.res.Resources;
 import android.os.Build;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.fragment.FragmentOne;
 import com.ouyang.demo.app.fragment.FragmentThree;
 import com.ouyang.demo.app.fragment.FragmentTwo;

@@ -1,7 +1,8 @@
 package com.ouyang.demo.app.utils;
 
 import android.widget.Toast;
-import com.ouyang.demo.app.base.BaseApp;
+
+import com.ouyang.demo.app.BaseApp;
 
 
 public final class ToastUtil {

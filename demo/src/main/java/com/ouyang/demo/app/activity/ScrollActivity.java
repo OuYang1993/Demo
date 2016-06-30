@@ -1,4 +1,4 @@
-package com.ouyang.demo.app;
+package com.ouyang.demo.app.activity;
 
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.adapter.RecyclerAdapter;
 
 import java.util.ArrayList;

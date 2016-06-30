@@ -1,24 +1,19 @@
 package com.ouyang.demo.app.adapter;
 
-import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.RippleDrawable;
-import android.os.Build;
-import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.*;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
 import com.nispok.snackbar.listeners.ActionClickListener;
 import com.nispok.snackbar.listeners.EventListener;
-import com.ouyang.demo.app.DetailActivity;
+import com.ouyang.demo.app.activity.DetailActivity;
 import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.utils.ToastUtil;
 

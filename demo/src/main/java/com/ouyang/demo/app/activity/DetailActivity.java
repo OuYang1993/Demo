@@ -1,8 +1,6 @@
-package com.ouyang.demo.app;
+package com.ouyang.demo.app.activity;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -14,11 +12,8 @@ import android.util.Log;
 import android.view.*;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ouyang.demo.app.utils.ToastUtil;
-
-import org.json.JSONObject;
+import com.ouyang.demo.app.R;
 
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
@@ -123,20 +118,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(intent);
                 break;
             case R.id.btn_call:
-                try {
-                    intent = new Intent();
-                    ComponentName component = new ComponentName(packageName, clzName);
-                    intent.setComponent(component);
-                    JSONObject json = new JSONObject();
-                    json.put("actiontype", "0");
-                    json.put("money", "0.01");
-                    json.put("othermoney", "0");
-                    intent.putExtra("params", json.toString());
-//                    intent.setClassName("com.masget.mgchat.mpos", "com.masget.mgchat.mpos.activity.OrderConsumeActivity");
-                    startActivityForResult(intent, 0);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                intent = new Intent(DetailActivity.this, ViewPagerActivity.class);
+                startActivity(intent);
                 break;
         }
     }

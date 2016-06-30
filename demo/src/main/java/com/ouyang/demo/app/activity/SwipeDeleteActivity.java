@@ -1,12 +1,14 @@
- package com.ouyang.demo.app;
+ package com.ouyang.demo.app.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.ouyang.demo.app.R;
 
-public class SwipeDeleteActivity extends AppCompatActivity {
+
+ public class SwipeDeleteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

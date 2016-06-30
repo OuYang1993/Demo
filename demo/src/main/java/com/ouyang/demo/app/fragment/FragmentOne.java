@@ -13,7 +13,7 @@ import android.view.*;
 
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.ouyang.demo.app.ListActivity;
+import com.ouyang.demo.app.activity.ListActivity;
 import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.adapter.SwipeAdapter;
 

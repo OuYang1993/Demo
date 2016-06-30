@@ -1,6 +1,8 @@
-package com.ouyang.demo.app.base;
+package com.ouyang.demo.app;
 
 import android.app.Application;
+
+import com.ouyang.demo.app.utils.LogUtil;
 
 /**
  * Created by oylz on 2015/6/16.
@@ -16,5 +18,11 @@ public class BaseApp extends Application {
 
     public BaseApp() {
         instance = this;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        LogUtil.init(BuildConfig.DEBUG, "OUYANG DEMO");
     }
 }

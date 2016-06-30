@@ -1,4 +1,4 @@
-package com.ouyang.demo.app;
+package com.ouyang.demo.app.activity;
 
 import android.content.Intent;
 import android.nfc.NfcAdapter;
@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.utils.ToastUtil;
 
 

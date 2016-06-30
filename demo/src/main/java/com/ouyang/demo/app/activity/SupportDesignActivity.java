@@ -1,4 +1,4 @@
-package com.ouyang.demo.app;
+package com.ouyang.demo.app.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+
+import com.ouyang.demo.app.R;
 import com.ouyang.demo.app.adapter.RecyclerAdapter1;
 
 import java.util.ArrayList;

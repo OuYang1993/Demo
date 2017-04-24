@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.transition.Explode;
 import android.util.Log;
 import android.view.*;
@@ -14,6 +16,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.ouyang.demo.app.R;
+import com.ouyang.demo.app.utils.LogUtil;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
@@ -109,20 +117,47 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
+
+
     @Override
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
             case R.id.btn_swipe:
-                intent = new Intent(DetailActivity.this, TabActivity.class);
+                intent = new Intent(DetailActivity.this, CameraActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_call:
-                intent = new Intent(DetailActivity.this, ViewPagerActivity.class);
-                startActivity(intent);
+//                intent = new Intent(DetailActivity.this, ViewPagerActivity.class);
+//                startActivity(intent);
+                getDaysBetween("2015-12-31", "2017-01-01");
                 break;
         }
     }
+
+    public static int getDaysBetween(String starDate, String endDate) {
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            Date fromDate = format.parse(starDate);
+            Calendar startCalendar = Calendar.getInstance();
+            startCalendar.setTime(fromDate);
+
+            Date toDate = format.parse(endDate);
+            Calendar endCalendar = Calendar.getInstance();
+            endCalendar.setTime(toDate);
+
+            long startTimeInMillis = startCalendar.getTimeInMillis();
+            long endTimeInMillis = endCalendar.getTimeInMillis();
+            long between =  endTimeInMillis - startTimeInMillis;
+            int days = (int) (between / (24 * 60 * 60 * 1000));
+            LogUtil.e("日期相差: " + days);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -1,1 +1,1 @@
-include ':Design', ':Transition', ':databinding', ':app', 'demo'
+include ':Design', ':databinding', ':app', ':demo2', ':code_scan', ':test', ':objectanimator', ':canvas', 'demo'

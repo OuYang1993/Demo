@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Demo</string>
+    <string name="title_tab_1">位置</string>
+    <string name="title_tab_2">消息</string>
+    <string name="title_tab_3">存档</string>
+    <string name="title_tab_4">账户</string>
+    <string name="title_tab_5">设置</string>
+    <string name="username_format">姓名: %1$s</string>
+    <string name="userage_format">年龄: %1$s</string>
+
+</resources>

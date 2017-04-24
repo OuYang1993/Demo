@@ -166,8 +166,9 @@ public class MainActivity extends AppCompatActivity {
                     float alpha = 1.0f - Math.abs(dX) / width;
                     viewHolder.itemView.setAlpha(alpha);
                     viewHolder.itemView.setTranslationX(dX);
+
                 }
-                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
             }
 
             @Override
